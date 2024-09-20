@@ -103,7 +103,7 @@ int main() {
     config.kernel_size = ARRAY_2D_SIZE(kernel);   
     config.bias=0;
     config.stride =1;
-    config.padding =3;
+    config.padding =1;
     config.pad_value =0;
 
     CONV_2D_OUTPUT* ptr = conv2D((int*)image_arr,(int*)kernel, &config);

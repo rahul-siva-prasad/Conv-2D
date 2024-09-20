@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Conv2D Build
 
 on:
   push:
@@ -12,12 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
+    - uses: actions/checkout@v1
+
     - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      run: make -f dev/null conv2D
+
+    - name: check executable
+      run: bash -c "[[ -x conv2D ]]"
